@@ -6,7 +6,7 @@ export class TMDBService implements ITMDBService {
   private apiAccessToken: string;
 
   constructor() {
-    this.baseUrl = `${import.meta.env.VITE_TMDB_API_BASE_URL}/${import.meta.env.VITE_TMDB_API_VERSION}/account/${import.meta.env.VITE_TMDB_ACCOUNT}`;
+    this.baseUrl = `${import.meta.env.VITE_TMDB_API_BASE_URL}/${import.meta.env.VITE_TMDB_API_VERSION}`;
     this.apiAccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
   }
 
@@ -19,8 +19,8 @@ export class TMDBService implements ITMDBService {
       },
     };
 
-    const endpoint = `favorite/movies`;
-    const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
+    const endpoint = `movie/popular`;
+    const queryParams = `language=en-US&api_key=bac54ad4cd2ac6f50991e9c110e2e379&page=${pageNumber}&sort_by=created_at.asc`;
 
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
