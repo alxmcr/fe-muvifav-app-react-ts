@@ -18,11 +18,13 @@ export default function useFavoriteMovies(pageNumber = 1) {
         // Request
         setStatusFavMovies(LoadingStates.PENDING);
         const response = await service.findAllFavoriteMoviesByPage(pageNumber);
+        console.log("🚀 ~ fetchFavMovies ~ response:", response)
         setTotalPages(response.total_pages);
         setTotalResults(response.total_results);
         setFavMovies(response.results);
         setStatusFavMovies(LoadingStates.SUCCESS);
       } catch (error) {
+        console.log("🚀 ~ fetchFavMovies ~ error:", error)
         if (error instanceof Error) {
           setErrorFavMovies(error);
           setStatusFavMovies(LoadingStates.ERROR);

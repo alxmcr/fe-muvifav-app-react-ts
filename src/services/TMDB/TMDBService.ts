@@ -3,11 +3,11 @@ import { ITMDBService } from './ITMDBService';
 
 export class TMDBService implements ITMDBService {
   private baseUrl: string;
+  private apiAccessToken: string;
 
   constructor() {
-    console.log('import.meta.env.', import.meta.env);
-
     this.baseUrl = `${import.meta.env.VITE_TMDB_API_BASE_URL}/${import.meta.env.VITE_TMDB_API_VERSION}/account/${import.meta.env.VITE_TMDB_ACCOUNT}`;
+    this.apiAccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
   }
 
   async findAllFavoriteMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllResponse> {
@@ -15,6 +15,7 @@ export class TMDBService implements ITMDBService {
       method: 'GET',
       headers: {
         accept: 'application/json',
+        Authorization: `Bearer ${this.apiAccessToken}`,
       },
     };
 
