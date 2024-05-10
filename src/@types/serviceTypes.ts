@@ -1,4 +1,4 @@
-export interface ITMDBMovie {
+export type TMDBMovieData = {
   id: number;
   title: string;
   poster_path: string | null;
@@ -13,10 +13,10 @@ export interface ITMDBMovie {
   vote_count?: number;
   video?: boolean;
   vote_average?: number;
-}
+};
 
 export interface ITMDBFindAllResponse {
   total_results: number;
   total_pages: number;
-  results: ITMDBMovie[];
+  results: TMDBMovieData[];
 }

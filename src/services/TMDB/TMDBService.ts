@@ -7,10 +7,10 @@ export class TMDBService implements ITMDBService {
   constructor() {
     console.log('import.meta.env.', import.meta.env);
 
-    this.baseUrl = `https://${import.meta.env.TMDB_API_BASE_URL}/${import.meta.env.TMDB_API_VERSION}/account/${import.meta.env.TMDB_ACCOUNT}`;
+    this.baseUrl = `${import.meta.env.VITE_TMDB_API_BASE_URL}/${import.meta.env.VITE_TMDB_API_VERSION}/account/${import.meta.env.VITE_TMDB_ACCOUNT}`;
   }
 
-  async findFavoriteMovies(pageNumber = 1): Promise<ITMDBFindAllResponse> {
+  async findAllFavoriteMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllResponse> {
     const options = {
       method: 'GET',
       headers: {
