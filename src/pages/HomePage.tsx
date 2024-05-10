@@ -1,10 +1,10 @@
 import BaseSection from '../components/BaseSection';
 import HeroSection from '../components/home-page/sections/HeroSection';
-import useFavoriteMovies from '../hooks/useFavoriteMovies';
+import usePopularMovies from '../hooks/usePopularMovies';
 
 export default function HomePage() {
-  const results = useFavoriteMovies(1);
-  console.log("🚀 ~ HomePage ~ results:", results)
+  const results = usePopularMovies(1);
+  console.log('🚀 ~ HomePage ~ results:', results);
 
   return (
     <main>

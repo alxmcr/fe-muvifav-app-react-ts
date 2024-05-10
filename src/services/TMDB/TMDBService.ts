@@ -10,7 +10,7 @@ export class TMDBService implements ITMDBService {
     this.apiAccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
   }
 
-  async findAllFavoriteMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllResponse> {
+  async findAllPopularMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllResponse> {
     const options = {
       method: 'GET',
       headers: {
