@@ -23,8 +23,8 @@ const CardHeroInfo = () => {
 export default function HeroSection() {
   return (
     <BaseSection id="hero" isWidthFull>
-      <div className="flex h-full items-center bg-[url('/assets/backgrounds/bg-hero.png')] bg-auto bg-center bg-no-repeat px-4 md:h-[580px]">
-        <div className="md:px-10 lg:w-[1028px]">
+      <div className="w-full bg-light-950 bg-[url('/assets/backgrounds/bg-hero.png')] bg-auto bg-center px-4 md:h-[580px]">
+        <div className="mx-auto flex flex-col justify-center border border-pink-400 md:h-[580px] md:px-10 lg:w-[1028px]">
           <CardHeroInfo />
         </div>
       </div>
