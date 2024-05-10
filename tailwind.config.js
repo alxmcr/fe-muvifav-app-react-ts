@@ -80,6 +80,8 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
+        rowdies: ['Rowdies', 'sans-serif'],
+        groteskspace: ['Space Grotesk', 'sans-serif'],
       },
     },
   },
