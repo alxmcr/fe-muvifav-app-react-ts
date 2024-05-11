@@ -1,5 +1,5 @@
-import { TMDBMovieData } from '../../../@types/serviceTypes';
-import PosterMovie from '../../PosterMovie';
+import { TMDBMovieData } from '../../@types/serviceTypes';
+import PosterMovie from '../PosterMovie';
 
 type Props = {
   movie: TMDBMovieData;
