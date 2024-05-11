@@ -4,8 +4,8 @@
 
 @layer components {
   .scrollbar-app::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px theme('colors.perano.500');
-    -webkit-box-shadow: inset 0 0 1px theme('colors.perano.500');
+    box-shadow: inset 0 0 1px theme('colors.golden.500');
+    -webkit-box-shadow: inset 0 0 1px theme('colors.golden.500');
     background-color: theme('colors.light.50');
   }
   .scrollbar-app::-webkit-scrollbar {
@@ -16,7 +16,7 @@
   .scrollbar-app::-webkit-scrollbar-thumb {
     height: 4px;
     width: 1px;
-    background-color: theme('colors.perano.500');
+    background-color: theme('colors.golden.500');
   }
 
   /* Player: Progress bar */
