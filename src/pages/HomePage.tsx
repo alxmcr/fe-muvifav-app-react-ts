@@ -1,9 +1,9 @@
 import BaseSection from '../components/BaseSection';
 import HeroSection from '../components/home-page/sections/HeroSection';
-import useTopRatedMovies from '../hooks/useTopRatedMovies';
+import useUpcomingMovies from '../hooks/useUpcomingMovies';
 
 export default function HomePage() {
-  const results = useTopRatedMovies(1);
+  const results = useUpcomingMovies(1);
   console.log('🚀 ~ HomePage ~ results:', results);
 
   return (
