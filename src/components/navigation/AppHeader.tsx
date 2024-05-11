@@ -8,9 +8,11 @@ type Props = {
 
 export default function AppHeader({ navLinks = [] }: Props) {
   return (
-    <header className="border border-golden-300">
-      <LogoMuvifav />
-      <AppNavigation navLinks={navLinks} />
+    <header className="flex justify-center border border-golden-300">
+      <div className="border border-pink-400 lg:w-[1028px]">
+        <LogoMuvifav />
+        <AppNavigation navLinks={navLinks} />
+      </div>
     </header>
   );
 }
