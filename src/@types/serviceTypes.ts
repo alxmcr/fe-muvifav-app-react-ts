@@ -15,7 +15,17 @@ export type TMDBMovieData = {
   vote_average?: number;
 };
 
-export interface ITMDBFindAllResponse {
+export interface ITMDBFindAllMoviesResponse {
+  total_results: number;
+  total_pages: number;
+  results: TMDBMovieData[];
+}
+
+export interface ITMDBFindAllUpcomingMoviesResponse {
+  dates: {
+    maximum: string;
+    minimum: string;
+  };
   total_results: number;
   total_pages: number;
   results: TMDBMovieData[];

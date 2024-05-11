@@ -1,7 +1,8 @@
-import { ITMDBFindAllResponse } from '../../@types/serviceTypes';
+import { ITMDBFindAllMoviesResponse, TMDBMovieData } from '../../@types/serviceTypes';
 
 export interface ITMDBService {
-  findAllPopularMoviesByPage(pageNumber: number): Promise<ITMDBFindAllResponse>;
-  findAllTopRatedMoviesByPage(pageNumber: number): Promise<ITMDBFindAllResponse>;
-  findAllUpcomingMoviesByPage(pageNumber: number): Promise<ITMDBFindAllResponse>;
+  findMovieById(idMovie: number): Promise<TMDBMovieData>;
+  findAllPopularMoviesByPage(pageNumber: number): Promise<ITMDBFindAllMoviesResponse>;
+  findAllTopRatedMoviesByPage(pageNumber: number): Promise<ITMDBFindAllMoviesResponse>;
+  findAllUpcomingMoviesByPage(pageNumber: number): Promise<ITMDBFindAllMoviesResponse>;
 }

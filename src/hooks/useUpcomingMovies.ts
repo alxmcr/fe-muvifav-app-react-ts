@@ -7,6 +7,8 @@ export default function useUpcomingMovies(pageNumber = 1) {
   const [upcomingMovies, setUpcomingMovies] = React.useState<TMDBMovieData[]>([]);
   const [totalResults, setTotalResults] = React.useState(0);
   const [totalPages, setTotalPages] = React.useState(1);
+  const [dateMax, setDateMax] = React.useState('');
+  const [dateMin, setDateMin] = React.useState('');
   const [statusUpcomingMovies, setStatusUpcomingMovies] = React.useState(LoadingStates.IDLE);
   const [errorUpcomingMovies, setErrorUpcomingMovies] = React.useState<Error | null>(null);
 
@@ -22,6 +24,8 @@ export default function useUpcomingMovies(pageNumber = 1) {
         setTotalPages(response.total_pages);
         setTotalResults(response.total_results);
         setUpcomingMovies(response.results);
+        setDateMax(response?.dates?.maximum);
+        setDateMin(response?.dates?.minimum);
         setStatusUpcomingMovies(LoadingStates.SUCCESS);
       } catch (error) {
         if (error instanceof Error) {
@@ -34,5 +38,13 @@ export default function useUpcomingMovies(pageNumber = 1) {
     fetchFavMovies();
   }, [pageNumber]);
 
-  return { upcomingMovies, totalResults, totalPages, errorUpcomingMovies, statusUpcomingMovies };
+  return {
+    upcomingMovies,
+    dateMin,
+    dateMax,
+    totalResults,
+    totalPages,
+    errorUpcomingMovies,
+    statusUpcomingMovies,
+  };
 }
