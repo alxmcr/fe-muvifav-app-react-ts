@@ -2,6 +2,7 @@ import Icon44x44ArrowLeft from '../components/@icons/44x44/Icon44x44ArrowLeft';
 import Icon44x44ArrowRight from '../components/@icons/44x44/Icon44x44ArrowRight';
 import LogoMuvifav from '../components/@logos/48x48/LogoMuvifav';
 import BaseSection from '../components/BaseSection';
+import MainContent from '../components/home-page/MainContent';
 import HeroSection from '../components/home-page/sections/HeroSection';
 import AppHeader from '../components/navigation/AppHeader';
 import useMovie from '../hooks/useMovie';
@@ -13,9 +14,8 @@ export default function HomePage() {
   console.log('🚀 ~ HomePage ~ movie:', movie);
 
   return (
-    <main>
-      <AppHeader navLinks={MOCK_NAV_LINKS} />
-      <HeroSection />
+    <div>
+      <MainContent />
       <BaseSection>
         <h1>Holas!</h1>
         <p>
@@ -24,6 +24,6 @@ export default function HomePage() {
           <Icon44x44ArrowRight />
         </p>
       </BaseSection>
-    </main>
+    </div>
   );
 }
