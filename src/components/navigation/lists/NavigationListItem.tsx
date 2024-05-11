@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { NavLinkData } from '../../../@types/appTypes';
+import NavLinkOutline from '../../@links/NavLinkOutline';
 
 type Props = {
   navLink: NavLinkData;
@@ -8,7 +8,7 @@ type Props = {
 export default function NavigationListItem({ navLink }: Props) {
   return (
     <li>
-      <NavLink to={navLink.href}>{navLink.text}</NavLink>
+      <NavLinkOutline navLink={navLink} />
     </li>
   );
 }

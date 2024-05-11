@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import { signUpLink } from '../../../mocks/mock-nav-links';
+import NavLinkSolid from '../../@links/NavLinkSolid';
 
 export default function CardHeroInfo() {
   return (
@@ -9,12 +10,7 @@ export default function CardHeroInfo() {
           Find information about your favorite movies in our amazing, unique catalogue
         </p>
       </div>
-      <NavLink
-        to="/sign-up"
-        className="flex h-[48px] w-full items-center justify-center rounded-lg bg-golden-300 text-[16px] md:w-[152px]"
-      >
-        Sign up
-      </NavLink>
+      <NavLinkSolid navLink={signUpLink} />
     </article>
   );
 }
