@@ -30,17 +30,19 @@ export default function PopularMoviesSection() {
 
   return (
     <section className="bg-light-950">
-      <header>
-        <h2 className="text-[2rem] text-golden-300">Popular</h2>
-        <div>
-          <button onClick={handlePrevPage}>Prev</button>
-          <p>
-            {pageNumber}/{totalPages}
-          </p>
-          <button onClick={handleNextPage}>Next</button>
-        </div>
-      </header>
-      <GroupCardsMovie movies={popularMovies} />
+      <div className="p-4 md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
+        <header>
+          <h2 className="text-[2rem] text-golden-300">Popular</h2>
+          <div>
+            <button onClick={handlePrevPage}>Prev</button>
+            <p>
+              {pageNumber}/{totalPages}
+            </p>
+            <button onClick={handleNextPage}>Next</button>
+          </div>
+        </header>
+        <GroupCardsMovie movies={popularMovies} />
+      </div>
     </section>
   );
 }
