@@ -18,7 +18,7 @@ export default function PosterMovie({ movie, posterSize = 'w500' }: Props) {
     <img
       src={`https://image.tmdb.org/t/p/${posterSize}/${movie?.poster_path}`}
       alt={`${movie.title}'s poster`}
-      className="h-[250px] w-[156px]"
+      className="h-[250px] w-[156px] hover:border hover:border-daisy-400"
     />
   );
 }
