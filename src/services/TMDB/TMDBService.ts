@@ -8,10 +8,12 @@ import { ITMDBService } from './ITMDBService';
 export class TMDBService implements ITMDBService {
   private baseUrl: string;
   private apiAccessToken: string;
+  private signal: AbortSignal;
 
-  constructor() {
+  constructor(signalAS: AbortSignal) {
     this.baseUrl = `${import.meta.env.VITE_TMDB_API_BASE_URL}/${import.meta.env.VITE_TMDB_API_VERSION}`;
     this.apiAccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
+    this.signal = signalAS;
   }
   async findMovieById(idMovie = 1): Promise<TMDBMovieData> {
     const endpoint = `movie`;
@@ -22,6 +24,7 @@ export class TMDBService implements ITMDBService {
         accept: 'application/json',
         Authorization: `Bearer ${this.apiAccessToken}`,
       },
+      signal: this.signal,
     };
 
     // https://api.themoviedb.org/3/movie/<ID_MOVIE>
@@ -42,6 +45,7 @@ export class TMDBService implements ITMDBService {
         accept: 'application/json',
         Authorization: `Bearer ${this.apiAccessToken}`,
       },
+      signal: this.signal,
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
@@ -64,6 +68,7 @@ export class TMDBService implements ITMDBService {
         accept: 'application/json',
         Authorization: `Bearer ${this.apiAccessToken}`,
       },
+      signal: this.signal,
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
@@ -86,6 +91,7 @@ export class TMDBService implements ITMDBService {
         accept: 'application/json',
         Authorization: `Bearer ${this.apiAccessToken}`,
       },
+      signal: this.signal,
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;

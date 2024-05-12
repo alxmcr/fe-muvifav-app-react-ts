@@ -11,14 +11,17 @@ export default function usePopularMovies(pageNumber = 1) {
   const [errorPopularMovies, setErrorPopularMovies] = React.useState<Error | null>(null);
 
   React.useEffect(() => {
+    let controller: AbortController | null = null;
+
     const fetchFavMovies = async () => {
       try {
-        const service = new TMDBService();
-
+        controller = new AbortController();
+        const signal: AbortSignal = controller.signal;
+        const service = new TMDBService(signal);
         // Request
         setStatusPopularMovies(LoadingStates.PENDING);
         const response = await service.findAllPopularMoviesByPage(pageNumber);
-        console.log("🚀 ~ fetchFavMovies ~ response:", response)
+        console.log('🚀 ~ fetchFavMovies ~ response:', response);
         // update state
         setTotalPages(response.total_pages);
         setTotalResults(response.total_results);
@@ -33,6 +36,12 @@ export default function usePopularMovies(pageNumber = 1) {
     };
 
     fetchFavMovies();
+
+    return () => {
+      if (controller !== null) {
+        controller.abort();
+      }
+    };
   }, [pageNumber]);
 
   return { popularMovies, totalResults, totalPages, errorPopularMovies, statusPopularMovies };

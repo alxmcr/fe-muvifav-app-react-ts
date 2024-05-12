@@ -13,9 +13,13 @@ export default function useUpcomingMovies(pageNumber = 1) {
   const [errorUpcomingMovies, setErrorUpcomingMovies] = React.useState<Error | null>(null);
 
   React.useEffect(() => {
+    let controller: AbortController | null = null;
+
     const fetchFavMovies = async () => {
       try {
-        const service = new TMDBService();
+        controller = new AbortController();
+        const signal: AbortSignal = controller.signal;
+        const service = new TMDBService(signal);
 
         // Request
         setStatusUpcomingMovies(LoadingStates.PENDING);
@@ -36,6 +40,12 @@ export default function useUpcomingMovies(pageNumber = 1) {
     };
 
     fetchFavMovies();
+
+    return () => {
+      if (controller !== null) {
+        controller.abort();
+      }
+    };
   }, [pageNumber]);
 
   return {
