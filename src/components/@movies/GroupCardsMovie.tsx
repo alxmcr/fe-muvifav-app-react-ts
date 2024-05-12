@@ -7,7 +7,7 @@ type Props = {
 
 export default function GroupCardsMovie({ movies = [] }: Props) {
   return (
-    <div>
+    <div className="scrollbar-app flex items-center gap-4 overflow-x-auto py-4">
       {movies.map((movie) => (
         <CardMovie key={movie.id} movie={movie} />
       ))}
