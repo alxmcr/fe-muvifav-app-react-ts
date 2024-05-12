@@ -15,7 +15,7 @@ export default function CardMovie({ movie }: Props) {
     <article className="flex min-w-[150px] flex-col gap-4">
       <PosterMovie movie={movie} posterSize="w500" />
       <div className="flex flex-col gap-1">
-        <h3 className="h-[45px] font-groteskspace font-bold text-light-50">{movie.title}</h3>
+        <h3 className="min-h-[45px] font-groteskspace font-bold text-light-50">{movie.title}</h3>
         <p className="flex items-center text-golden-300">
           <Icon24x24Star />
           <span>{movie.vote_average}</span>

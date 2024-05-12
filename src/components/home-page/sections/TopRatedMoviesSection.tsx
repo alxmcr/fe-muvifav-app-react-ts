@@ -1,17 +1,18 @@
 import React from 'react';
 import { LoadingStates } from '../../../@types/serviceEnums';
-import usePopularMovies from '../../../hooks/usePopularMovies';
+import useTopRatedMovies from '../../../hooks/useTopRatedMovies';
 import GroupCardsMovie from '../../@movies/GroupCardsMovie';
 import ArrowActionsMovies from '../ArrowActionsMovies';
 
-export default function PopularMoviesSection() {
+export default function TopRatedMoviesSection() {
   const [pageNumber, setPageNumber] = React.useState(1);
-  const { popularMovies, errorPopularMovies, statusPopularMovies, totalPages } = usePopularMovies(pageNumber);
+  const { topRatedMovies, errorTopRatedMovies, statusTopRatedMovies, totalPages } =
+    useTopRatedMovies(pageNumber);
 
   const handlePrevPage = () => setPageNumber((prevPageNumber) => prevPageNumber - 1);
   const handleNextPage = () => setPageNumber((prevPageNumber) => prevPageNumber + 1);
 
-  if (LoadingStates.PENDING === statusPopularMovies) {
+  if (LoadingStates.PENDING === statusTopRatedMovies) {
     return (
       <section>
         <h2>Popular</h2>
@@ -20,11 +21,11 @@ export default function PopularMoviesSection() {
     );
   }
 
-  if (LoadingStates.ERROR === statusPopularMovies && errorPopularMovies) {
+  if (LoadingStates.ERROR === statusTopRatedMovies && errorTopRatedMovies) {
     return (
       <section>
         <h2>Popular</h2>
-        <p>{errorPopularMovies.message}</p>
+        <p>{errorTopRatedMovies.message}</p>
       </section>
     );
   }
@@ -33,7 +34,7 @@ export default function PopularMoviesSection() {
     <section className="bg-light-950">
       <div className="flex flex-col gap-4 p-4 md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
         <header className="flex items-center justify-between">
-          <h2 className="font-rowdies text-[2.5rem] font-bold text-golden-300">Popular</h2>
+          <h2 className="font-rowdies text-[2.5rem] font-bold text-golden-300">Top rated</h2>
           <ArrowActionsMovies
             pageNumber={pageNumber}
             totalPages={totalPages}
@@ -41,7 +42,7 @@ export default function PopularMoviesSection() {
             handleNextPage={handleNextPage}
           />
         </header>
-        <GroupCardsMovie movies={popularMovies} />
+        <GroupCardsMovie movies={topRatedMovies} />
       </div>
     </section>
   );
