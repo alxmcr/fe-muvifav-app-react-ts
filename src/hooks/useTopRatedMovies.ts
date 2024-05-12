@@ -4,7 +4,7 @@ import { LoadingStates } from '../@types/serviceEnums';
 import { TMDBService } from '../services/TMDB/TMDBService';
 
 export default function useTopRatedMovies(pageNumber = 1) {
-  const [popularMovies, setTopRatedMovies] = React.useState<TMDBMovieData[]>([]);
+  const [topRatedMovies, setTopRatedMovies] = React.useState<TMDBMovieData[]>([]);
   const [totalResults, setTotalResults] = React.useState(0);
   const [totalPages, setTotalPages] = React.useState(1);
   const [statusTopRatedMovies, setStatusTopRatedMovies] = React.useState(LoadingStates.IDLE);
@@ -43,5 +43,5 @@ export default function useTopRatedMovies(pageNumber = 1) {
     };
   }, [pageNumber]);
 
-  return { popularMovies, totalResults, totalPages, errorTopRatedMovies, statusTopRatedMovies };
+  return { topRatedMovies, totalResults, totalPages, errorTopRatedMovies, statusTopRatedMovies };
 }
