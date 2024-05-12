@@ -2,7 +2,7 @@ import React from 'react';
 import { LoadingStates } from '../../../@types/serviceEnums';
 import usePopularMovies from '../../../hooks/usePopularMovies';
 import GroupCardsMovie from '../../@movies/GroupCardsMovie';
-import ArrowActionsMovies from '../ArrowActionsMovies';
+import HeaderSectionMovies from '../HeaderSectionMovies';
 
 export default function PopularMoviesSection() {
   const [pageNumber, setPageNumber] = React.useState(1);
@@ -32,15 +32,13 @@ export default function PopularMoviesSection() {
   return (
     <section className="bg-light-950">
       <div className="flex flex-col gap-4 p-4 md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
-        <header className="flex items-center justify-between">
-          <h2 className="font-rowdies text-[2.5rem] font-bold text-golden-300">Popular</h2>
-          <ArrowActionsMovies
-            pageNumber={pageNumber}
-            totalPages={totalPages}
-            handlePrevPage={handlePrevPage}
-            handleNextPage={handleNextPage}
-          />
-        </header>
+        <HeaderSectionMovies
+          title="Popular"
+          pageNumber={pageNumber}
+          totalPages={totalPages}
+          handlePrevPage={handlePrevPage}
+          handleNextPage={handleNextPage}
+        />
         <GroupCardsMovie movies={popularMovies} />
       </div>
     </section>

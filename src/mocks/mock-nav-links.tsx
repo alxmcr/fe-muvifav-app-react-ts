@@ -9,13 +9,13 @@ export const homeLink: NavLinkData = {
 export const signUpLink: NavLinkData = {
   id: 'nav-link-002',
   text: 'Sign up',
-  href: '/sign-up',
+  href: '/',
 };
 
 export const signInLink: NavLinkData = {
   id: 'nav-link-003',
   text: 'Sign in',
-  href: '/sign-in',
+  href: '/',
 };
 
 export const MOCK_NAV_LINKS: NavLinkData[] = [signInLink];

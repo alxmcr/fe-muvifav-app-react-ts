@@ -2,7 +2,7 @@ import React from 'react';
 import { LoadingStates } from '../../../@types/serviceEnums';
 import useTopRatedMovies from '../../../hooks/useTopRatedMovies';
 import GroupCardsMovie from '../../@movies/GroupCardsMovie';
-import ArrowActionsMovies from '../ArrowActionsMovies';
+import HeaderSectionMovies from '../HeaderSectionMovies';
 
 export default function TopRatedMoviesSection() {
   const [pageNumber, setPageNumber] = React.useState(1);
@@ -33,15 +33,13 @@ export default function TopRatedMoviesSection() {
   return (
     <section className="bg-light-950">
       <div className="flex flex-col gap-4 p-4 md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
-        <header className="flex items-center justify-between">
-          <h2 className="font-rowdies text-[2.5rem] font-bold text-golden-300">Top rated</h2>
-          <ArrowActionsMovies
-            pageNumber={pageNumber}
-            totalPages={totalPages}
-            handlePrevPage={handlePrevPage}
-            handleNextPage={handleNextPage}
-          />
-        </header>
+        <HeaderSectionMovies
+          title="Top Rated"
+          pageNumber={pageNumber}
+          totalPages={totalPages}
+          handlePrevPage={handlePrevPage}
+          handleNextPage={handleNextPage}
+        />
         <GroupCardsMovie movies={topRatedMovies} />
       </div>
     </section>
