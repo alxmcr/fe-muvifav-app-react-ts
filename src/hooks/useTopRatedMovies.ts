@@ -11,10 +11,13 @@ export default function useTopRatedMovies(pageNumber = 1) {
   const [errorTopRatedMovies, setErrorTopRatedMovies] = React.useState<Error | null>(null);
 
   React.useEffect(() => {
+    let controller: AbortController | null = null;
+
     const fetchFavMovies = async () => {
       try {
-        const service = new TMDBService();
-
+        controller = new AbortController();
+        const signal: AbortSignal = controller.signal;
+        const service = new TMDBService(signal);
         // Request
         setStatusTopRatedMovies(LoadingStates.PENDING);
         const response = await service.findAllTopRatedMoviesByPage(pageNumber);
@@ -32,6 +35,12 @@ export default function useTopRatedMovies(pageNumber = 1) {
     };
 
     fetchFavMovies();
+
+    return () => {
+      if (controller !== null) {
+        controller.abort();
+      }
+    };
   }, [pageNumber]);
 
   return { popularMovies, totalResults, totalPages, errorTopRatedMovies, statusTopRatedMovies };

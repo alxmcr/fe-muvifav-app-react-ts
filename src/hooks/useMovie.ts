@@ -9,9 +9,13 @@ export default function useMovie(idMovie = 1) {
   const [statusLoadingMovie, setStatusLoadingMovie] = React.useState(LoadingStates.IDLE);
 
   React.useEffect(() => {
+    let controller: AbortController | null = null;
+
     const fetchMovie = async (id = 0) => {
       try {
-        const service = new TMDBService();
+        controller = new AbortController();
+        const signal: AbortSignal = controller.signal;
+        const service = new TMDBService(signal);
 
         // Request
         setStatusLoadingMovie(LoadingStates.PENDING);
@@ -28,6 +32,12 @@ export default function useMovie(idMovie = 1) {
     };
 
     fetchMovie(idMovie);
+
+    return () => {
+      if (controller !== null) {
+        controller.abort();
+      }
+    };
   }, [idMovie]);
 
   return { movie, errorMovie, statusLoadingMovie };
