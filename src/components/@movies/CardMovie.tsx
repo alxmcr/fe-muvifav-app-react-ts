@@ -12,7 +12,7 @@ export default function CardMovie({ movie }: Props) {
 
   return (
     <article>
-      <PosterMovie movie={movie} />
+      <PosterMovie movie={movie} posterSize="w500" />
       <div>
         <h3>{movie.title}</h3>
         <p>{movie.release_date}</p>
