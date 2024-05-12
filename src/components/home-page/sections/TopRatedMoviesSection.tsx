@@ -34,7 +34,7 @@ export default function TopRatedMoviesSection() {
     <section className="bg-light-950">
       <div className="flex flex-col gap-4 p-4 md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
         <header className="flex items-center justify-between">
-          <h2 className="font-rowdies text-[2.5rem] font-bold text-golden-300">Popular</h2>
+          <h2 className="font-rowdies text-[2.5rem] font-bold text-golden-300">Top rated</h2>
           <ArrowActionsMovies
             pageNumber={pageNumber}
             totalPages={totalPages}
