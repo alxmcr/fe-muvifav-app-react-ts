@@ -1,4 +1,8 @@
-import { ITMDBFindAllMoviesResponse, ITMDBFindAllUpcomingMoviesResponse, TMDBMovieData } from '../../@types/serviceTypes';
+import {
+  ITMDBFindAllMoviesResponse,
+  ITMDBFindAllUpcomingMoviesResponse,
+  TMDBMovieData,
+} from '../../@types/serviceTypes';
 import { ITMDBService } from './ITMDBService';
 
 export class TMDBService implements ITMDBService {
@@ -12,7 +16,7 @@ export class TMDBService implements ITMDBService {
   async findMovieById(idMovie = 1): Promise<TMDBMovieData> {
     const endpoint = `movie`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -20,6 +24,7 @@ export class TMDBService implements ITMDBService {
       },
     };
 
+    // https://api.themoviedb.org/3/movie/<ID_MOVIE>
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}/${idMovie}`, options);
 
     if (response.status === 200) {
@@ -31,7 +36,7 @@ export class TMDBService implements ITMDBService {
   async findAllUpcomingMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllUpcomingMoviesResponse> {
     const endpoint = `movie/upcoming`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -40,7 +45,7 @@ export class TMDBService implements ITMDBService {
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
-
+    // https://api.themoviedb.org/3/movie/upcoming?api_key=<API_KEY>&page=1
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
     if (response.status === 200) {
@@ -53,7 +58,7 @@ export class TMDBService implements ITMDBService {
   async findAllTopRatedMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllMoviesResponse> {
     const endpoint = `movie/top_rated`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -62,7 +67,7 @@ export class TMDBService implements ITMDBService {
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
-
+    // https://api.themoviedb.org/3/movie/top_rated?api_key=<API_KEY>&page=1
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
     if (response.status === 200) {
@@ -75,7 +80,7 @@ export class TMDBService implements ITMDBService {
   async findAllPopularMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllMoviesResponse> {
     const endpoint = `movie/popular`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -84,7 +89,7 @@ export class TMDBService implements ITMDBService {
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
-
+    // https://api.themoviedb.org/3/movie/popular?api_key=<API_KEY>&page=1
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
     if (response.status === 200) {
