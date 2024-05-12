@@ -3,12 +3,11 @@ import Icon44x44ArrowRight from '../components/@icons/44x44/Icon44x44ArrowRight'
 import LogoMuvifav from '../components/@logos/48x48/LogoMuvifav';
 import BaseSection from '../components/BaseSection';
 import MainContent from '../components/home-page/MainContent';
-import useMovie from '../hooks/useMovie';
+import usePopularMovies from '../hooks/usePopularMovies';
 
 export default function HomePage() {
-  const idMovie = 748783;
-  const movie = useMovie(idMovie);
-  console.log('🚀 ~ HomePage ~ movie:', movie);
+  const { popularMovies } = usePopularMovies(1);
+  console.log('🚀 ~ HomePage ~ popularMovies:', popularMovies);
 
   return (
     <div>

@@ -18,6 +18,7 @@ export default function usePopularMovies(pageNumber = 1) {
         // Request
         setStatusPopularMovies(LoadingStates.PENDING);
         const response = await service.findAllPopularMoviesByPage(pageNumber);
+        console.log("🚀 ~ fetchFavMovies ~ response:", response)
         // update state
         setTotalPages(response.total_pages);
         setTotalResults(response.total_results);

@@ -5,15 +5,6 @@ import mockUpcomingMovies from './data/mock-upcoming-movies.json';
 import mockMovie from './data/mock-movie.json';
 
 export const handlers = [
-  // Intercept "GET https://api.themoviedb.org/3/movie/<id-movie>" requests...
-  http.get('https://api.themoviedb.org/3/movie/:id', (req) => {
-    const { id } = req.params;
-    console.log('🚀 ~ http.get ~ id:', id);
-
-    // ...and respond to them using this JSON response.
-    return HttpResponse.json(mockMovie);
-  }),
-
   // Intercept "GET https://api.themoviedb.org/3/movie/popular" requests...
   http.get('https://api.themoviedb.org/3/movie/popular', () => {
     // ...and respond to them using this JSON response.
@@ -30,5 +21,14 @@ export const handlers = [
   http.get('https://api.themoviedb.org/3/movie/upcoming', () => {
     // ...and respond to them using this JSON response.
     return HttpResponse.json(mockUpcomingMovies);
+  }),
+
+  // Intercept "GET https://api.themoviedb.org/3/movie/<id-movie>" requests...
+  http.get('https://api.themoviedb.org/3/movie/:id', (req) => {
+    const { id } = req.params;
+    console.log('🚀 ~ http.get ~ id:', id);
+
+    // ...and respond to them using this JSON response.
+    return HttpResponse.json(mockMovie);
   }),
 ];
