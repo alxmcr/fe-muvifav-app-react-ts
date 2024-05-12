@@ -16,7 +16,7 @@ export class TMDBService implements ITMDBService {
   async findMovieById(idMovie = 1): Promise<TMDBMovieData> {
     const endpoint = `movie`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -36,7 +36,7 @@ export class TMDBService implements ITMDBService {
   async findAllUpcomingMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllUpcomingMoviesResponse> {
     const endpoint = `movie/upcoming`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -58,7 +58,7 @@ export class TMDBService implements ITMDBService {
   async findAllTopRatedMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllMoviesResponse> {
     const endpoint = `movie/top_rated`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -80,7 +80,7 @@ export class TMDBService implements ITMDBService {
   async findAllPopularMoviesByPage(pageNumber = 1): Promise<ITMDBFindAllMoviesResponse> {
     const endpoint = `movie/popular`;
 
-    const options = {
+    const options: RequestInit = {
       method: 'GET',
       headers: {
         accept: 'application/json',
