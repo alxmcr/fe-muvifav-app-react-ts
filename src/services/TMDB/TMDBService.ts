@@ -1,4 +1,8 @@
-import { ITMDBFindAllMoviesResponse, ITMDBFindAllUpcomingMoviesResponse, TMDBMovieData } from '../../@types/serviceTypes';
+import {
+  ITMDBFindAllMoviesResponse,
+  ITMDBFindAllUpcomingMoviesResponse,
+  TMDBMovieData,
+} from '../../@types/serviceTypes';
 import { ITMDBService } from './ITMDBService';
 
 export class TMDBService implements ITMDBService {
@@ -20,6 +24,7 @@ export class TMDBService implements ITMDBService {
       },
     };
 
+    // https://api.themoviedb.org/3/movie/<ID_MOVIE>
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}/${idMovie}`, options);
 
     if (response.status === 200) {
@@ -40,7 +45,7 @@ export class TMDBService implements ITMDBService {
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
-
+    // https://api.themoviedb.org/3/movie/upcoming?api_key=<API_KEY>&page=1
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
     if (response.status === 200) {
@@ -62,7 +67,7 @@ export class TMDBService implements ITMDBService {
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
-
+    // https://api.themoviedb.org/3/movie/top_rated?api_key=<API_KEY>&page=1
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
     if (response.status === 200) {
@@ -84,7 +89,7 @@ export class TMDBService implements ITMDBService {
     };
 
     const queryParams = `language=en-US&page=${pageNumber}&sort_by=created_at.asc`;
-
+    // https://api.themoviedb.org/3/movie/popular?api_key=<API_KEY>&page=1
     const response: Response = await fetch(`${this.baseUrl}/${endpoint}?${queryParams}`, options);
 
     if (response.status === 200) {
