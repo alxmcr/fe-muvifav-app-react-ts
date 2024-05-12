@@ -11,7 +11,7 @@ export default function CardMovie({ movie }: Props) {
   }
 
   return (
-    <article>
+    <article className="min-w-[150px]">
       <PosterMovie movie={movie} posterSize="w500" />
       <div>
         <h3>{movie.title}</h3>
