@@ -6,7 +6,7 @@ const initialActions: DialogMovieActions = {
   closeDialog: () => {},
 };
 
-export const RefDialogMovieSelectedContext = React.createContext<React.RefObject<HTMLDialogElement> | null>(
+export const DialogRefMovieSelectedContext = React.createContext<React.RefObject<HTMLDialogElement> | null>(
   null,
 );
 

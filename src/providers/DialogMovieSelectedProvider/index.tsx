@@ -1,5 +1,5 @@
 import React from 'react';
-import { DialogMovieActionsContext, RefDialogMovieSelectedContext } from './DialogMovieSelectedContext';
+import { DialogMovieActionsContext, DialogRefMovieSelectedContext } from './DialogMovieSelectedContext';
 
 type Props = {
   children: React.ReactNode;
@@ -21,10 +21,10 @@ export default function DialogMovieSelectedProvider({ children }: Props) {
   };
 
   return (
-    <RefDialogMovieSelectedContext.Provider value={dialogRef}>
+    <DialogRefMovieSelectedContext.Provider value={dialogRef}>
       <DialogMovieActionsContext.Provider value={{ openDialog, closeDialog }}>
         {children}
       </DialogMovieActionsContext.Provider>
-    </RefDialogMovieSelectedContext.Provider>
+    </DialogRefMovieSelectedContext.Provider>
   );
 }
