@@ -1,3 +1,4 @@
+import AppFooter from '../components/AppFooter';
 import MainContent from '../components/home-page/MainContent';
 import PopularMoviesSection from '../components/home-page/sections/PopularMoviesSection';
 import TopRatedMoviesSection from '../components/home-page/sections/TopRatedMoviesSection';
@@ -16,6 +17,7 @@ export default function HomePage() {
         <PopularMoviesSection />
         <TopRatedMoviesSection />
         <UpcomingMoviesSection />
+        <AppFooter />
       </div>
     </HomePageProviders>
   );
