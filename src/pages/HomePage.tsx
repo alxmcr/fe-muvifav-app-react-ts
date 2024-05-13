@@ -11,10 +11,12 @@ export default function HomePage() {
 
   return (
     <HomePageProviders>
-      <MainContent />
-      <PopularMoviesSection />
-      <TopRatedMoviesSection />
-      <UpcomingMoviesSection />
+      <div className="h-screen bg-light-950">
+        <MainContent />
+        <PopularMoviesSection />
+        <TopRatedMoviesSection />
+        <UpcomingMoviesSection />
+      </div>
     </HomePageProviders>
   );
 }
