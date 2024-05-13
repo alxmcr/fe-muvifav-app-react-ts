@@ -9,8 +9,8 @@ export default function DialogMovieSelectedProvider({ children }: Props) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <DialogMovieSelectedContext.Provider value={{ isOpen }}>
-      <SetDialogMovieSelectedContext.Provider value={{ setIsOpen }}>
+    <DialogMovieSelectedContext.Provider value={isOpen}>
+      <SetDialogMovieSelectedContext.Provider value={setIsOpen}>
         {children}
       </SetDialogMovieSelectedContext.Provider>
     </DialogMovieSelectedContext.Provider>

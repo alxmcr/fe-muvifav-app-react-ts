@@ -10,10 +10,8 @@ export default function MovieSelectedProvider({ children }: Props) {
   const [movieSelected, setMovieSelected] = React.useState<TMDBMovieData | null>(null);
 
   return (
-    <MovieSelectedContext.Provider value={{ movieSelected }}>
-      <SetMovieSelectedContext.Provider value={{ setMovieSelected }}>
-        {children}
-      </SetMovieSelectedContext.Provider>
+    <MovieSelectedContext.Provider value={movieSelected}>
+      <SetMovieSelectedContext.Provider value={setMovieSelected}>{children}</SetMovieSelectedContext.Provider>
     </MovieSelectedContext.Provider>
   );
 }

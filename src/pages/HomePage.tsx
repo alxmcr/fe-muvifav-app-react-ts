@@ -3,17 +3,18 @@ import PopularMoviesSection from '../components/home-page/sections/PopularMovies
 import TopRatedMoviesSection from '../components/home-page/sections/TopRatedMoviesSection';
 import UpcomingMoviesSection from '../components/home-page/sections/UpcomingMoviesSection';
 import usePopularMovies from '../hooks/usePopularMovies';
+import HomePageProviders from '../providers/HomePageProviders';
 
 export default function HomePage() {
   const { popularMovies } = usePopularMovies(1);
   console.log('🚀 ~ HomePage ~ popularMovies:', popularMovies);
 
   return (
-    <div>
+    <HomePageProviders>
       <MainContent />
       <PopularMoviesSection />
       <TopRatedMoviesSection />
       <UpcomingMoviesSection />
-    </div>
+    </HomePageProviders>
   );
 }

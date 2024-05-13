@@ -1,17 +1,7 @@
 import React from 'react';
 
-type DialogMovieSelectedContextData = {
-  isOpen: boolean;
-};
+export const DialogMovieSelectedContext = React.createContext<boolean>(false);
 
-type SetDialogMovieSelectedContextData = {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-export const DialogMovieSelectedContext = React.createContext<DialogMovieSelectedContextData>({
-  isOpen: false,
-});
-
-export const SetDialogMovieSelectedContext = React.createContext<SetDialogMovieSelectedContextData>({
-  setIsOpen: () => {},
-});
+export const SetDialogMovieSelectedContext = React.createContext<
+  React.Dispatch<React.SetStateAction<boolean>>
+>(() => {});
