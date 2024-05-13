@@ -1,6 +1,7 @@
 import React from 'react';
 import { LoadingStates } from '../../../@types/serviceEnums';
 import usePopularMovies from '../../../hooks/usePopularMovies';
+import DialogMovieDetails from '../../@dialogs/DialogMovieDetails';
 import GroupCardsMovie from '../../@movies/GroupCardsMovie';
 import HeaderSectionMovies from '../HeaderSectionMovies';
 
@@ -40,6 +41,7 @@ export default function PopularMoviesSection() {
           handleNextPage={handleNextPage}
         />
         <GroupCardsMovie movies={popularMovies} />
+        <DialogMovieDetails />
       </div>
     </section>
   );

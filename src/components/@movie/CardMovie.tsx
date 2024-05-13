@@ -1,4 +1,7 @@
+import React from 'react';
 import { TMDBMovieData } from '../../@types/serviceTypes';
+import { DialogMovieActionsContext } from '../../providers/DialogMovieSelectedProvider/DialogMovieSelectedContext';
+import { SetMovieSelectedContext } from '../../providers/MovieSelectedProvider/MovieSelectedContext';
 import Icon24x24Star from '../@icons/24x24/Icon24x24Star';
 import PosterMovie from '../PosterMovie';
 
@@ -7,12 +10,20 @@ type Props = {
 };
 
 export default function CardMovie({ movie }: Props) {
+  const setMovieSelected = React.useContext(SetMovieSelectedContext);
+  const { openDialog } = React.useContext(DialogMovieActionsContext);
+
+  const handleShowMovieDetails = () => {
+    setMovieSelected(movie);
+    openDialog();
+  };
+
   if (movie === null || movie === undefined) {
     return null;
   }
 
   return (
-    <article className="flex min-w-[150px] flex-col gap-4">
+    <article className="flex min-w-[150px] flex-col gap-4" onClick={handleShowMovieDetails}>
       <PosterMovie movie={movie} posterSize="w500" />
       <div className="flex flex-col gap-1">
         <h3 className="min-h-[45px] font-groteskspace font-bold text-light-50">{movie.title}</h3>

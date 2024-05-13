@@ -1,5 +1,5 @@
 import { TMDBMovieData } from '../../@types/serviceTypes';
-import CardMovie from './CardMovie';
+import CardMovie from '../@movie/CardMovie';
 
 type Props = {
   movies: TMDBMovieData[];
