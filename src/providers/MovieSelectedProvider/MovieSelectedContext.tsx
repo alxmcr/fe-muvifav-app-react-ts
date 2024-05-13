@@ -3,11 +3,11 @@ import { TMDBMovieData } from '../../@types/serviceTypes';
 import { DEFAULT_MOCK_MOVIE } from '../../mocks/mock-movies';
 
 type MovieSelectedContextData = {
-  movieSelected: TMDBMovieData;
+  movieSelected: TMDBMovieData | null;
 };
 
 type SetMovieSelectedContextData = {
-  setMovieSelected: React.Dispatch<React.SetStateAction<TMDBMovieData>>;
+  setMovieSelected: React.Dispatch<React.SetStateAction<TMDBMovieData | null>>;
 };
 
 export const MovieSelectedContext = React.createContext<MovieSelectedContextData>({
