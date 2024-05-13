@@ -1,26 +1,21 @@
 import { TMDBMovieData } from '../../@types/serviceTypes';
-import Icon22x22CircleClose from '../@icons/22x22/Icon22x22CircleClose';
 import PosterMovieDetails from '../PosterMovieDetails';
 
 type Props = {
   movie: TMDBMovieData;
-  closeDialog: () => void;
 };
 
-export default function CardMovieDetails({ movie, closeDialog }: Props) {
+export default function CardMovieDetails({ movie }: Props) {
   if (movie === null || movie === undefined) {
     return null;
   }
 
   return (
-    <article className="relative grid">
-      <button className="absolute right-2 top-2" onClick={closeDialog}>
-        <Icon22x22CircleClose />
-      </button>
+    <article className="relative flex flex-col items-center gap-6 rounded-lg p-4">
       <PosterMovieDetails movie={movie} posterSize="w500" />
-      <div className="flex flex-col">
-        <h3>{movie.title}</h3>
-        <p>{movie.overview}</p>
+      <div className="flex flex-col gap-2">
+        <h3 className="font-rowdies text-[1.3rem] font-bold">{movie.title}</h3>
+        <p className="font-groteskspace">{movie.overview}</p>
       </div>
     </article>
   );

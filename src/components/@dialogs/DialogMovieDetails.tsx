@@ -5,6 +5,7 @@ import {
 } from '../../providers/DialogMovieSelectedProvider/DialogMovieSelectedContext';
 import CardMovieDetails from '../@movie/CardMovieDetails';
 import { MovieSelectedContext } from '../../providers/MovieSelectedProvider/MovieSelectedContext';
+import Icon22x22CircleClose from '../@icons/22x22/Icon22x22CircleClose';
 
 export default function DialogMovieDetails() {
   const movieSelected = React.useContext(MovieSelectedContext);
@@ -18,9 +19,14 @@ export default function DialogMovieDetails() {
   return (
     <dialog
       ref={dialogRef}
-      className="h-[544px] w-[304px] bg-light-50 backdrop:bg-black/50 md:right-[-380px] md:top-[53px] md:h-[638px] md:w-[336px] lg:right-[-600px] lg:top-[5px] lg:h-[762px] lg:w-[392px] xl:right-[-610px] xl:top-[-16px] xl:w-[392px]"
+      className="w-[300px] rounded-lg p-4 backdrop:bg-black/50 md:w-[350px] lg:w-[500px]"
     >
-      <CardMovieDetails movie={movieSelected} closeDialog={closeDialog} />
+      <div className="relative rounded-lg bg-light-50">
+        <button className="absolute -right-1 -top-2 z-10 text-light-950" onClick={closeDialog}>
+          <Icon22x22CircleClose />
+        </button>
+        <CardMovieDetails movie={movieSelected} />
+      </div>
     </dialog>
   );
 }
