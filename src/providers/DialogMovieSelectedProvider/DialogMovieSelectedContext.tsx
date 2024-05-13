@@ -1,7 +1,13 @@
 import React from 'react';
+import { DialogMovieActions } from '../../@types/providerTypes';
 
-export const DialogMovieSelectedContext = React.createContext<boolean>(false);
+const initialActions: DialogMovieActions = {
+  openDialog: () => {},
+  closeDialog: () => {},
+};
 
-export const SetDialogMovieSelectedContext = React.createContext<
-  React.Dispatch<React.SetStateAction<boolean>>
->(() => {});
+export const RefDialogMovieSelectedContext = React.createContext<React.RefObject<HTMLDialogElement> | null>(
+  null,
+);
+
+export const DialogMovieActionsContext = React.createContext<DialogMovieActions>(initialActions);

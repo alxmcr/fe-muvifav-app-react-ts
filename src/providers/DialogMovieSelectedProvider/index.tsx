@@ -1,18 +1,30 @@
 import React from 'react';
-import { DialogMovieSelectedContext, SetDialogMovieSelectedContext } from './DialogMovieSelectedContext';
+import { DialogMovieActionsContext, RefDialogMovieSelectedContext } from './DialogMovieSelectedContext';
 
 type Props = {
   children: React.ReactNode;
 };
 
 export default function DialogMovieSelectedProvider({ children }: Props) {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const dialogRef = React.useRef<HTMLDialogElement>(null);
+
+  const openDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+
+  const closeDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
 
   return (
-    <DialogMovieSelectedContext.Provider value={isOpen}>
-      <SetDialogMovieSelectedContext.Provider value={setIsOpen}>
+    <RefDialogMovieSelectedContext.Provider value={dialogRef}>
+      <DialogMovieActionsContext.Provider value={{ openDialog, closeDialog }}>
         {children}
-      </SetDialogMovieSelectedContext.Provider>
-    </DialogMovieSelectedContext.Provider>
+      </DialogMovieActionsContext.Provider>
+    </RefDialogMovieSelectedContext.Provider>
   );
 }
