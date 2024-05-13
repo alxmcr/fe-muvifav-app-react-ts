@@ -35,11 +35,15 @@ Start the server
 
 - Home Page desktop
 
-![Home Page desktop](https://muvifav-app.netlify.app/public/screenshots/home-page-mobile.png)
+![Home Page desktop](https://muvifav-app.netlify.app/screenshots/home-page-mobile.png)
 
 - Home Page mobile
 
-![Home Page mobile](https://muvifav-app.netlify.app/)
+![Home Page mobile](https://muvifav-app.netlify.app/screenshots/home-page-desktop.png)
+
+- Dialog movie details
+
+![Dialog movie details](https://muvifav-app.netlify.app/screenshots/dialog-movie-details.png)
 
 ## Tech Stack
 
