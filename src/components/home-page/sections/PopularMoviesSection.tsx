@@ -14,25 +14,45 @@ export default function PopularMoviesSection() {
 
   if (LoadingStates.PENDING === statusPopularMovies) {
     return (
-      <section>
-        <h2>Popular</h2>
-        <p>Loading movies...</p>
+      <section className="bg-light-950">
+        <div className="flex flex-col gap-4 p-4 md:h-[500px] md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
+          <HeaderSectionMovies
+            title="Popular"
+            pageNumber={pageNumber}
+            totalPages={totalPages}
+            handlePrevPage={handlePrevPage}
+            handleNextPage={handleNextPage}
+          />
+          <div className="flex h-full items-center justify-center">
+            <p className="text-golden-300">Loading popular movies...</p>
+          </div>
+        </div>
       </section>
     );
   }
 
   if (LoadingStates.ERROR === statusPopularMovies && errorPopularMovies) {
     return (
-      <section>
-        <h2>Popular</h2>
-        <p>{errorPopularMovies.message}</p>
+      <section className="bg-light-950">
+        <div className="flex flex-col gap-4 p-4 md:h-[500px] md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
+          <HeaderSectionMovies
+            title="Popular"
+            pageNumber={pageNumber}
+            totalPages={totalPages}
+            handlePrevPage={handlePrevPage}
+            handleNextPage={handleNextPage}
+          />
+          <div className="h-full">
+            <p className="text-golden-300">{errorPopularMovies.message}</p>
+          </div>
+        </div>
       </section>
     );
   }
 
   return (
     <section className="bg-light-950">
-      <div className="flex flex-col gap-4 p-4 md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
+      <div className="flex flex-col gap-4 p-4 md:h-[500px] md:w-full md:px-10 lg:mx-auto lg:w-[1028px] lg:px-0">
         <HeaderSectionMovies
           title="Popular"
           pageNumber={pageNumber}
