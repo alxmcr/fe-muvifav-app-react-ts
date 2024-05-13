@@ -7,16 +7,16 @@ type Props = {
   closeDialog: () => void;
 };
 
-export default function CardMovieDetails({ movie }: Props) {
+export default function CardMovieDetails({ movie, closeDialog }: Props) {
   if (movie === null || movie === undefined) {
     return null;
   }
 
   return (
     <article className="relative grid">
-      <span className="absolute right-2 top-2">
+      <button className="absolute right-2 top-2" onClick={closeDialog}>
         <Icon22x22CircleClose />
-      </span>
+      </button>
       <PosterMovieDetails movie={movie} posterSize="w500" />
       <div className="flex flex-col">
         <h3>{movie.title}</h3>

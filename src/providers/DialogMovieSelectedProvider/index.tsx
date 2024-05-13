@@ -15,6 +15,7 @@ export default function DialogMovieSelectedProvider({ children }: Props) {
   };
 
   const closeDialog = () => {
+    console.log('close!');
     if (dialogRef.current) {
       dialogRef.current.close();
     }
