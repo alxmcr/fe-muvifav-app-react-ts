@@ -19,7 +19,7 @@ export default function DialogMovieDetails() {
   return (
     <dialog
       ref={dialogRef}
-      className="w-[300px] rounded-lg p-4 backdrop:bg-black/50 md:w-[350px] lg:w-[500px]"
+      className="w-[300px] rounded-lg p-4 backdrop:bg-black/50 md:w-[530px] xl:w-[600px]"
     >
       <div className="relative rounded-lg bg-light-50">
         <button className="absolute -right-1 -top-2 z-10 text-light-950" onClick={closeDialog}>
